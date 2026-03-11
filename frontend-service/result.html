@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>預測結果</title>
+</head>
+<body>
+
+<h1>📊 預測狀態</h1>
+
+{% if success %}
+    <p style="color: green;">{{ msg }}</p>
+    <a href="/download">⬇️ 下載 預測結果 (CSV)</a>
+{% else %}
+    <p style="color: red;">❌ {{ msg }}</p>
+    <a href="/">⬅️ 返回上傳頁面</a>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上傳 CSV 並預測</title>
+</head>
+<body>
+
+<h1>🗂 上傳 CSV 並 進行 預測</h1>
+
+<form method="POST" action="/upload_predict" enctype="multipart/form-data">
+    <input type="file" id="fileInput" name="datafile" accept=".csv" required>
+    <button type="submit">開始預測</button>
+</form>
+
+</body>
+</html>

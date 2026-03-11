@@ -1,0 +1,11 @@
+services:
+
+  api:
+    build: ./api-service
+    ports:
+      - "8000:8000"
+
+  model:
+    build: ./model-service
+    ports:
+      - "9000:9000"
