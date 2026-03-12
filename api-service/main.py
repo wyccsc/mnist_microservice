@@ -3,7 +3,7 @@ import requests
 
 app = FastAPI()
 
-MODEL_URL = "http://mnist_model_container:8000/predict"
+MODEL_URL = "http://mnist_microservice_model_service:8000/predict"
 
 @app.post("/upload_predict")
 async def upload_predict(datafile: UploadFile = File(...)):
