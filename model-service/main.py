@@ -9,6 +9,8 @@ model = load_model("my_cnn_model.keras")
 
 @app.post("/predict")
 
+#asd
+
 async def predict(file:UploadFile=File(...)):
 
     df = pd.read_csv(file.file)
