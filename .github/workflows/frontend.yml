@@ -52,5 +52,5 @@ jobs:
           context: ./frontend-service
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/mnist_microservice/frontend-service:${{ steps.bump.outputs.NEW_VERSION }}
-            ${{ secrets.DOCKER_USERNAME }}/mnist_microservice/frontend-service:latest
+            ${{ secrets.DOCKER_USERNAME }}/mnist_microservice_frontend_service:${{ steps.bump.outputs.NEW_VERSION }}
+            ${{ secrets.DOCKER_USERNAME }}/mnist_microservice_frontend_service:latest

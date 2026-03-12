@@ -51,5 +51,5 @@ jobs:
           context: ./model-service
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/mnist_microservice/model-service:${{ steps.bump.outputs.NEW_VERSION }}
-            ${{ secrets.DOCKER_USERNAME }}/mnist_microservice/model-service:latest
+            ${{ secrets.DOCKER_USERNAME }}/mnist_microservice_model_service:${{ steps.bump.outputs.NEW_VERSION }}
+            ${{ secrets.DOCKER_USERNAME }}/mnist_microservice_model_service:latest
