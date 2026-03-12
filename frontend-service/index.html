@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>上傳 CSV 並預測</title>
+    <title>MNIST CSV 上傳</title>
 </head>
 <body>
+    <h1>MNIST CSV 上傳預測</h1>
 
-<h1>🗂 上傳 CSV 並 進行 預測</h1>
+    <input type="file" id="fileInput" accept=".csv">
+    <button onclick="uploadCSV()">送出預測</button>
 
-<form method="POST" action="/upload_predict" enctype="multipart/form-data">
-    <input type="file" id="fileInput" name="datafile" accept=".csv" required>
-    <button type="submit">開始預測</button>
-</form>
+    <pre id="output"></pre>
 
+    <script>
+    async function uploadCSV() {
+        const file = document.getElementById("fileInput").files[0];
+        if (!file) return alert("請選擇 CSV 檔");
+
+        const formData = new FormData();
+        formData.append("datafile", file);
+
+        const res = await fetch("http://localhost:8000/upload_predict", {
+            method: "POST",
+            body: formData
+        });
+
+        const text = await res.text();
+        document.getElementById("output").textContent = text;
+    }
+    </script>
 </body>
 </html>

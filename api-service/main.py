@@ -3,15 +3,13 @@ import requests
 
 app = FastAPI()
 
-MODEL_URL="http://model-service:9000/predict"
+MODEL_URL = "http://model-service:8000/predict"
 
-@app.post("/predict")
-
-async def predict(file:UploadFile=File(...)):
-
+@app.post("/upload_predict")
+async def upload_predict(datafile: UploadFile = File(...)):
+    content = await datafile.read()
     response = requests.post(
         MODEL_URL,
-        files={"file":file.file}
+        files={"file": (datafile.filename, content)}
     )
-
     return response.json()

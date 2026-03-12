@@ -49,5 +49,5 @@ jobs:
           context: ./api-service
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/api-service:${{ steps.bump.outputs.NEW_VERSION }}
-            ${{ secrets.DOCKER_USERNAME }}/api-service:latest
+            ${{ secrets.DOCKER_USERNAME }}/mnist_microservice/api-service:${{ steps.bump.outputs.NEW_VERSION }}
+            ${{ secrets.DOCKER_USERNAME }}/mnist_microservice/api-service:latest

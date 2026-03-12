@@ -1,13 +1,7 @@
-FROM tensorflow/tensorflow:2.14.0-gpu
+# 準備一個最簡靜態網站容器
+FROM nginx:alpine
 
-WORKDIR /app
+# 將 index.html 放到 nginx 的根目錄
+COPY index.html /usr/share/nginx/html/index.html
 
-COPY . .
-
-RUN python -m pip install --no-cache-dir --upgrade -r requirements.txt
-
-RUN python -m pip install --no-cache-dir pandas
-
-EXPOSE 8000
-
-CMD ["uvicorn","app.main:app","--host","0.0.0.0","--port","8000"]
+CMD ["nginx", "-g", "daemon off;"]
