@@ -5,10 +5,8 @@ on:
     paths:
       - "api-service/**"
 
-on:
-  push:
-    paths:
-      - "frontend-service/**"
+permissions:
+  contents: write
 
 jobs:
   build-push:

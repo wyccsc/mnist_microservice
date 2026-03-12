@@ -5,11 +5,9 @@ on:
     paths:
       - "api-service/**"
 
-on:
-  push:
-    paths:
-      - "model-service/**"
-
+permissions:
+  contents: write
+  
 jobs:
   build-push:
     runs-on: ubuntu-latest
