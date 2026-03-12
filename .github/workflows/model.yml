@@ -3,7 +3,7 @@ name: Model CI/CD
 on:
   push:
     paths:
-      - "api-service/**"
+      - "model-service/**"
 
 permissions:
   contents: write

@@ -3,7 +3,7 @@ FROM tensorflow/tensorflow:2.14.0-gpu
 WORKDIR /app
 
 COPY . .
-# ghj
+
 RUN python -m pip install --no-cache-dir --upgrade -r requirements.txt
  
 EXPOSE 8000  
