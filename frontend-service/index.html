@@ -1,33 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>MNIST CSV 上傳</title>
+<meta charset="UTF-8">
+<title>MNIST CSV 預測</title>
 </head>
+
 <body>
-    <h1>MNIST CSV 上傳預測</h1>
 
-    <input type="file" id="fileInput" accept=".csv">
-    <button onclick="uploadCSV()">送出預測</button>
+<h1>MNIST CSV 預測系統</h1>
 
-    <pre id="output"></pre>
+<input type="file" id="fileInput" accept=".csv">
+<button onclick="uploadCSV()">送出預測</button>
 
-    <script>
-    async function uploadCSV() {
-        const file = document.getElementById("fileInput").files[0];
-        if (!file) return alert("請選擇 CSV 檔");
+<h3>結果</h3>
+<pre id="output"></pre>
 
-        const formData = new FormData();
-        formData.append("datafile", file);
+<br>
 
-        const res = await fetch("http://localhost:8000/upload_predict", {
-            method: "POST",
-            body: formData
-        });
+<button id="downloadBtn" onclick="downloadResult()" style="display:none;">
+下載預測結果 CSV
+</button>
 
-        const text = await res.text();
-        document.getElementById("output").textContent = text;
+<script>
+
+async function uploadCSV(){
+
+    const file = document.getElementById("fileInput").files[0];
+
+    if(!file){
+        alert("請選擇 CSV 檔案");
+        return;
     }
-    </script>
+
+    const formData = new FormData();
+    formData.append("datafile",file);
+
+    const res = await fetch("http://localhost:8000/upload_predict",{
+        method:"POST",
+        body:formData
+    });
+
+    const result = await res.json();
+
+    document.getElementById("output").textContent =
+        JSON.stringify(result,null,2);
+
+    document.getElementById("downloadBtn").style.display="block";
+}
+
+function downloadResult(){
+
+    window.location.href="http://localhost:8000/download";
+
+}
+
+</script>
+
 </body>
 </html>
