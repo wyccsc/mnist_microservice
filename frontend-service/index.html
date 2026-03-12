@@ -20,7 +20,7 @@
         const formData = new FormData();
         formData.append("datafile", file);
 
-        const res = await fetch("http://localhost:8000/upload_predict", {
+        const res = await fetch("http://mnist_microservice_frontend_service:8000/upload_predict", {
             method: "POST",
             body: formData
         });
