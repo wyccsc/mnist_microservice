@@ -3,6 +3,11 @@ name: Frontend CI/CD
 on:
   push:
     paths:
+      - "api-service/**"
+
+on:
+  push:
+    paths:
       - "frontend-service/**"
 
 jobs:

@@ -3,6 +3,11 @@ name: Model CI/CD
 on:
   push:
     paths:
+      - "api-service/**"
+
+on:
+  push:
+    paths:
       - "model-service/**"
 
 jobs:
